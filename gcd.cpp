@@ -156,16 +156,6 @@ std::ostream& operator<< (std::ostream &out, Fraction& x) {
     return out;
 }
 
-std::istream& operator>> (std::istream& in, Fraction& p) {
-    int a, b;
-    char sl;
-    in >> a;
-    in >> sl;
-    in >> b;
-    p.set_a(a);
-    p.set_b(b);
-    return in;
-}
 
 
 
