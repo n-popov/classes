@@ -46,6 +46,10 @@ class StringPtr {
 public:
     StringPtr() : ptr(nullptr) {}
     StringPtr(std::string *ptr) : ptr(ptr) {}
+    StringPtr(const StringPtr& anotherptr) {
+        ptr = new std::string;
+        *ptr = *(anotherptr.getPtr());
+    }
 
     ~StringPtr() {
         delete ptr;
@@ -80,15 +84,16 @@ void someFunc(Student s) {
 }
 
 int main() {
-    Student arkadiy("Arkadiy", 15);
-    Student another_arkadiy = arkadiy;
+//    Student arkadiy("Arkadiy", 15);
+//    Student another_arkadiy = arkadiy;
 
 //    std::string niki = "Niki";
 //    someFunc(another_arkadiy);
 //    StringPtr* array_of_ptrs = new StringPtr[15];
     std::string* some_string = new std::string("Niki");
     StringPtr smart_ptr(some_string);
-    StringPtr another_ptr = smart_ptr;
+    StringPtr another_ptr(smart_ptr);
+    std::cout << *another_ptr << ' ' << *smart_ptr << std::endl;
 //    std::cout << smart_ptr.operator*() << std::endl;
 //    std::cin >> smart_ptr;
 //    std::cout << smart_ptr << ' ' << *smart_ptr << std::endl;
@@ -99,6 +104,4 @@ int main() {
 //    std::cout << intptr << ' ' << *intptr << std::endl;
 
     auto x = 5;
-    unsigned y = 0;
-
 }

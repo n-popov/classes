@@ -3,4 +3,8 @@ project(classes)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(classes in_class.cpp)
+find_package(Boost)
+
+include_directories(${Boost_INCLUDE_DIR})
+
+add_executable(classes gcd.cpp)
