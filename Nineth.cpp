@@ -62,7 +62,7 @@ int main() {
     std::cout << v.at(0) << ' ' << v.at(3) << std::endl;
     try {
         std::cout << v.at(54) << std::endl;
-    } catch (std::bad_alloc& ex) {
+    } catch (std::out_of_range& ex) {
         std::cout << ex.what() << std::endl;
     }
 
